@@ -1,6 +1,7 @@
 import 'package:ecommerce_vendor/utils/show_snackbar.dart';
 import 'package:ecommerce_vendor/vendors/views/auth/widgets/textfield_custom.dart';
 import 'package:ecommerce_vendor/vendors/views/auth/widgets/vendor_register_account_screen.dart';
+import 'package:ecommerce_vendor/vendors/views/screens/landing_screen.dart';
 import 'package:flutter/material.dart';
 import '../../../../controllers/vendor_controller.dart';
 
@@ -18,6 +19,7 @@ class VendorSignIn extends StatelessWidget {
       if (key.currentState != null) {
         String res = await controller.vendorLogin(email, pass);
         if (res == "Success") {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => LandingScreen()));
           return showSnackBar(context, "Login Success");
         } else {
           return showSnackBar(context, "Login Fail");

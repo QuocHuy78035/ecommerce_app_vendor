@@ -1,16 +1,17 @@
 import 'dart:typed_data';
 import 'package:country_state_city_picker/country_state_city_picker.dart';
 import 'package:ecommerce_vendor/vendors/views/auth/widgets/textfield_custom.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 import '../../../../controllers/vendor_controller.dart';
 import '../../../../utils/show_snackbar.dart';
+import '../../screens/landing_screen.dart';
 
 class VendorRegistrationScreen extends StatefulWidget {
   final String email;
+
   const VendorRegistrationScreen({super.key, required this.email});
 
   @override
@@ -52,17 +53,17 @@ class _VendorRegistrationScreenState extends State<VendorRegistrationScreen> {
 
   _registerStoreVendor() async {
     EasyLoading.show(status: "PLEASE WAIT");
-    String res = await vendorController.registerVendor(
-        businessName,
-        widget.email,
-        phoneNumber,
-        countryValue,
-        stateValue,
-        cityValue,
-        taxNumber,
-        _taxStatus!,
-        _image).whenComplete((){
-          EasyLoading.dismiss();
+    String res = await vendorController
+        .registerVendor(businessName, widget.email, phoneNumber, countryValue,
+            stateValue, cityValue, taxNumber, _taxStatus!, _image)
+        .whenComplete(() {
+      EasyLoading.dismiss();
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const LandingScreen(),
+        ),
+      );
     });
     if (res == "Success") {
       return showSnackBar(context, "Register store Success");

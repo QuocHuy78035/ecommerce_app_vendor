@@ -2,6 +2,7 @@ import 'package:ecommerce_vendor/utils/show_snackbar.dart';
 import 'package:ecommerce_vendor/vendors/views/auth/widgets/textfield_custom.dart';
 import 'package:ecommerce_vendor/vendors/views/auth/widgets/vendor_registration_screen.dart';
 import 'package:ecommerce_vendor/vendors/views/auth/widgets/vendor_sign_in.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../controllers/vendor_controller.dart';

@@ -82,7 +82,6 @@ class VendorController {
           && taxNumber.isNotEmpty && image != null
       ){
         String storeImage = await uploadVendorPicToStorage(image);
-        print('123');
         await _store.collection('vendors').doc(_auth.currentUser?.uid ?? "").set({
           "businessName" : businessName,
           "email" : email,
@@ -92,7 +91,9 @@ class VendorController {
           "taxRegistered" : taxRegistered,
           "taxNumber" : taxNumber,
           "storeImage" : storeImage,
-          "approved" : false
+          "approved" : false,
+          'stateValue' : stateValue,
+          'vendorId' : _auth.currentUser?.uid ?? ""
         });
         res = "Success";
       }
