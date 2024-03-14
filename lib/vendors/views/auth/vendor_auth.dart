@@ -1,5 +1,5 @@
+
 import 'package:ecommerce_vendor/vendors/views/auth/widgets/vendor_register_account_screen.dart';
-import 'package:ecommerce_vendor/vendors/views/auth/widgets/vendor_registration_screen.dart';
 import 'package:ecommerce_vendor/vendors/views/auth/widgets/vendor_sign_in.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';

@@ -61,7 +61,7 @@ class _VendorRegistrationScreenState extends State<VendorRegistrationScreen> {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => LandingScreen(),
+          builder: (context) => const LandingScreen(),
         ),
       );
     });
